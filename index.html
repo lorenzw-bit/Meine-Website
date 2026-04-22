@@ -14,6 +14,18 @@
     </style>
 </head>
 
+<script>
+    // Teil A: Lokale Daten
+    const stadtteile = ["Urfahr", "Innere Stadt", "Bindermichel"];
+    const liste = document.getElementById("liste-linz");
+    stadtteile.forEach(s => {
+        let li = document.createElement("li");
+        li.textContent = s;
+        liste.appendChild(li);
+    });
+
+</script>
+
 <body>
     <h1 id="top">Meine Linz-Seite</h1>
     <h1>Lorenz Wieshofer TEST 4</h1>
@@ -62,7 +74,7 @@
             </tr>
         </table>
         <br>
-       
+
         <br>
         <br>
         <ul>
@@ -96,9 +108,15 @@
 
 
     </ul>
-<br>
-<br>
- <a href="#top">Nach oben</a>
+    <br>
+
+
+
+
+
+    <ul id="liste-linz"></ul>
+    <br>
+    <a href="#top">Nach oben</a>
 
 </body>
 
