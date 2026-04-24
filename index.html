@@ -14,24 +14,14 @@
     </style>
 </head>
 
-<script>
-    // Teil A: Lokale Daten
-    const stadtteile = ["Urfahr", "Innere Stadt", "Bindermichel"];
-    const liste = document.getElementById("liste-linz");
-    stadtteile.forEach(s => {
-        let li = document.createElement("li");
-        li.textContent = s;
-        liste.appendChild(li);
-    });
-
-</script>
-
 <body>
+
     <h1 id="top">Meine Linz-Seite</h1>
     <h1>Lorenz Wieshofer TEST 4</h1>
     <p>Name:Lorenz Wieshofer</p>
     <p>Alter: 14 Jahre</p>
     <p>Wohnort: Linz</p>
+
     <img src="img/bild1.png" width="100">
     <img src="img/bild2.png" width="100" alt="Robin Marlin Herain" title="Robin Marlin Herain">
 
@@ -51,72 +41,109 @@
     <h2>Die Linz Checkliste</h2>
     <ul>
         <li><a href="https://www.khev.at/" target="blank">Khevenhüllergymnasium Linz</a></li>
-        <li><a href="https://www.linzag.at/portal/de/privatkunden/freizeit/grottenbahn_2" target="blank">Grottenbahn</a>
-        </li>
+        <li><a href="https://www.linzag.at/portal/de/privatkunden/freizeit/grottenbahn_2" target="blank">Grottenbahn</a></li>
         <li><a href="https://www.ooekultur.at/location-detail/schlossmuseum-linz" target="blank">Schlossmuseum</a></li>
-        <br>
-        <table>
-            <tr>
-                <th>Zeit</th>
-                <th>Fach</th>
-            </tr>
-            <tr>
-                <td>7:50-8:40</td>
-                <td>Mathematik</td>
-            </tr>
-            <tr>
-                <td>8:45-9:35</td>
-                <td>Chemie</td>
-            </tr>
-            <tr>
-                <td>9:40-10:30</td>
-                <td>Englisch</td>
-            </tr>
-        </table>
-        <br>
+    </ul>
 
-        <br>
-        <br>
-        <ul>
-            <li>Österreich
-                <ol>
-                    <li>Sturm Graz</li>
-                    <li>Lask</li>
-                    <li>Rapid</li>
-                </ol>
-            </li>
-            <br>
-            <li>Deutschland
-                <ol>
-                    <li>FC Bayern</li>
-                    <li>Dortmund</li>
-                    <li>VFL Stuttgard</li>
-                </ol>
-            </li>
-            <br>
-            <li>England</li>
+    <br>
+
+    <table>
+        <tr>
+            <th>Zeit</th>
+            <th>Fach</th>
+        </tr>
+        <tr>
+            <td>7:50-8:40</td>
+            <td>Mathematik</td>
+        </tr>
+        <tr>
+            <td>8:45-9:35</td>
+            <td>Chemie</td>
+        </tr>
+        <tr>
+            <td>9:40-10:30</td>
+            <td>Englisch</td>
+        </tr>
+    </table>
+
+    <br>
+
+    <ul>
+        <li>Österreich
+            <ol>
+                <li>Sturm Graz</li>
+                <li>Lask</li>
+                <li>Rapid</li>
+            </ol>
+        </li>
+
+        <li>Deutschland
+            <ol>
+                <li>FC Bayern</li>
+                <li>Dortmund</li>
+                <li>VFL Stuttgard</li>
+            </ol>
+        </li>
+
+        <li>England
             <ol>
                 <li>Arsenal</li>
                 <li>Manchester City</li>
                 <li>Manchester United</li>
             </ol>
-        </ul>
-
-
-
-
-
-
+        </li>
     </ul>
+
     <br>
 
-
-
-
-
+    <h2>Linzer Stadtteile</h2>
     <ul id="liste-linz"></ul>
+
+    <h2>User vom Server</h2>
+    <ul id="service-liste"></ul>
+
     <br>
     <a href="#top">Nach oben</a>
+
+
+    <script>
+
+        // Teil A: Lokale Daten
+        const stadtteile = ["Urfahr", "Innere Stadt", "Bindermichel"];
+
+        const liste = document.getElementById("liste-linz");
+
+        stadtteile.forEach(s => {
+            let li = document.createElement("li");
+            li.textContent = s;
+            liste.appendChild(li);
+        });
+
+
+        // Teil B: Servicecall
+
+        fetch('https://jsonplaceholder.typicode.com/users')
+            .then(response => response.json())
+            .then(data => {
+
+                const sListe = document.getElementById("service-liste");
+
+                data.forEach(user => {
+                    let li = document.createElement("li");
+                    li.textContent = "User: " + user.name;
+                    sListe.appendChild(li);
+                });
+
+            });
+
+    </script>
+
+    <figure>
+  <img src="img/bild3.png" alt="Meer mit Insel" style="width:300px;">
+  <figcaption>
+    </figcaption>
+</figure>
+
 
 </body>
 
